@@ -1,10 +1,10 @@
 .PHONY: all clean
 
 CC = g++
-CFLAGS = -Wall -ggdb -std=c++17 -DLOG_USE_COLOR -DIMGUI_IMPL_OPENGL_LOADER_GLAD -Ilib/WMT/lib/ -Ilib/glad/include/ -Ilib/imgui/ -Ilib/ -Isrc/
+CFLAGS = -w -Wall -ggdb -std=c++17 -DLOG_USE_COLOR -DIMGUI_IMPL_OPENGL_LOADER_GLAD -Ilib/WMT/lib/ -Ilib/glad/include/ -Ilib/imgui/ -Ilib/ -Isrc/
 LDFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lGL -lGLU -lglfw -lpng -ldl -lGLEW
 
-SOURCES  = $(wildcard src/*.cpp lib/*.cpp lib/apng/*.c lib/jcom/src/*.cpp)
+SOURCES  = $(wildcard src/*.c src/*.cpp lib/*.cpp lib/apng/*.c lib/jcom/src/*.cpp)
 #SOURCES += lib/WMT/lib/zip.cpp lib/WMT/lib/wmt.cpp
 OBJECTS  = $(patsubst %.cpp,%.o,$(patsubst %.c,%.o,$(SOURCES)))
 DEPS     = $(patsubst %.cpp,%.d,$(patsubst %.c,%.d,$(SOURCES)))
